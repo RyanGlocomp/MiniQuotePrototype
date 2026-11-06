@@ -1,0 +1,19 @@
+{
+  "client": "Demo Client",
+  "brand": "Demo Brand",
+  "header": {
+    "partner": "ACME Sdn Bhd",
+    "attention": "Aisha Rahman",
+    "project": "DC refresh",
+    "quote_ref": "Q-2026-001"
+  },
+  "line_items": [
+    {"part_no": "SW-48", "description": "48-port switch", "qty": 4, "unit_cost": "1234.56"},
+    {"part_no": "SFP-10G", "description": "10G SFP+ optic", "qty": 2, "unit_cost": "99.99"},
+    {"part_no": "CAB-3M", "description": "3m patch cable", "qty": 3, "unit_cost": "10.00"}
+  ],
+  "_expected_totals_markup_0.20_tax_0.08": {
+    "line_count": 3, "unit_count": 9,
+    "subtotal": "6202.00", "tax": "496.16", "total": "6698.16"
+  }
+}

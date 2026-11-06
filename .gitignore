@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+jobs/*
+!jobs/.gitkeep
+audit.db
+node_modules/
+.next/
+.claude/settings.local.json

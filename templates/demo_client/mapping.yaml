@@ -1,0 +1,29 @@
+# Field mapping for Demo Client x Demo Brand.
+# Stage e writes ONLY the cells listed under header/line_items/inputs.
+# Stage f reads back the cells under totals (formula results after recalc).
+sheet: Quote
+
+header:
+  partner: B4
+  attention: B5
+  project: B6
+  quote_ref: B7
+
+inputs:
+  tax_rate: E9
+
+line_items:
+  first_row: 12
+  max_rows: 20
+  columns:
+    part_no: B
+    description: C
+    qty: D
+    unit_price: E
+
+totals:
+  line_count: F33
+  unit_count: F34
+  subtotal: F35
+  tax: F36
+  total: F37

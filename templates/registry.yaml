@@ -1,0 +1,8 @@
+# Client x Brand -> template + field mapping (paths relative to this folder).
+templates:
+  - client: Demo Client
+    brand: Demo Brand
+    template_id: demo_client
+    version: 1
+    file: demo_client/quote_template.xlsx
+    mapping: demo_client/mapping.yaml

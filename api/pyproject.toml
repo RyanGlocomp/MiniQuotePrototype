@@ -1,0 +1,23 @@
+[project]
+name = "mini-quote-api"
+version = "0.1.0"
+description = "Mini Quote Builder processing service (learning build of Option A)"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart>=0.0.9",
+    "pydantic>=2.8",
+    "pyyaml>=6.0",
+    "openpyxl>=3.1",
+    "pdfplumber>=0.11",
+    "pymupdf>=1.24",
+    "httpx>=0.27",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["libreoffice: needs soffice on PATH (stage f recalc)"]

@@ -1,0 +1,34 @@
+# Mini Quote Builder on a SHARED DGX Spark.
+# - Reuses the Spark's EXISTING Ollama; does not start another model server.
+# - The host's Ollama listens on 127.0.0.1 only, so api uses host networking to reach it
+#   (no change to the shared Ollama service). api itself listens on 127.0.0.1:API_PORT.
+# - Project name "mqb-ryan" keeps container names away from other users'.
+name: mqb-ryan
+
+services:
+  api:
+    build:
+      context: ./api
+      args:
+        APP_UID: ${APP_UID:-1000}
+    network_mode: host
+    env_file: .env
+    environment:
+      JOBS_DIR: /data/jobs
+      TEMPLATES_DIR: /data/templates
+      AUDIT_DB: /data/jobs/audit.db
+    volumes:
+      - ./jobs:/data/jobs
+      - ./templates:/data/templates:ro
+    mem_limit: 4g
+    restart: unless-stopped
+
+  # web (Next.js) is added at milestone M5.
+
+  # Milestone M6: an optional vLLM server, started only with `--profile vllm`.
+  # vllm:
+  #   profiles: ["vllm"]
+  #   image: <arm64 / DGX Spark vLLM image, to be confirmed>
+  #   command: >
+  #     --model <model> --gpu-memory-utilization 0.2 --max-model-len 8192
+  #     --host 127.0.0.1 --port ${VLLM_PORT:-8117}
